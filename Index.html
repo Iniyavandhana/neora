@@ -3,35 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neora - Online Shopping for Wellness, Beauty & More</title>
+  <title>Flipkart Inspired UI</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #5D1049;  /* Neora purple */
-      --secondary: #E30425; /* Neora red */
-      --accent: #FFD700;   /* Gold accent */
-      --dark: #2E2E2E;
-      --light: #F8F8F8;
-      --white: #FFFFFF;
+      --primary: #2874f0;
+      --secondary: #fb641b;
+      --accent: #ff9f00;
+      --dark: #212121;
+      --light: #f1f3f6;
+      --white: #ffffff;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+      font-family: 'Roboto', Arial, sans-serif;
     }
 
     body {
       background-color: var(--light);
-      color: var(--dark);
     }
 
     /* Header Styles */
     .header {
       background-color: var(--primary);
-      padding: 12px 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 10px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -43,7 +42,7 @@
       justify-content: space-between;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 15px;
     }
 
     .logo {
@@ -52,32 +51,25 @@
     }
 
     .logo img {
-      height: 28px;
+      height: 20px;
     }
 
     .logo span {
       font-size: 12px;
       color: white;
       font-style: italic;
-      margin-left: 8px;
-      margin-top: 12px;
-      font-weight: 500;
-    }
-
-    .logo .plus {
-      color: var(--accent);
+      margin-left: 5px;
+      margin-top: 10px;
     }
 
     .search-bar {
       display: flex;
       width: 50%;
-      border-radius: 4px;
-      overflow: hidden;
     }
 
     .search-bar input {
       width: 100%;
-      padding: 12px 18px;
+      padding: 10px 15px;
       border: none;
       outline: none;
       font-size: 14px;
@@ -86,55 +78,39 @@
     .search-bar button {
       background-color: var(--white);
       border: none;
-      padding: 0 22px;
+      padding: 0 20px;
       cursor: pointer;
       color: var(--primary);
-      transition: background-color 0.3s;
-    }
-
-    .search-bar button:hover {
-      background-color: #f0f0f0;
     }
 
     .login-btn {
       background-color: var(--white);
       color: var(--primary);
       border: none;
-      padding: 10px 32px;
-      font-weight: 600;
+      padding: 8px 40px;
+      font-weight: 500;
       cursor: pointer;
-      border-radius: 4px;
-      transition: all 0.3s;
-    }
-
-    .login-btn:hover {
-      background-color: #f0f0f0;
-      transform: translateY(-2px);
+      border-radius: 2px;
     }
 
     .become-seller, .more, .cart {
       color: var(--white);
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 500;
       cursor: pointer;
-      transition: color 0.3s;
-    }
-
-    .become-seller:hover, .more:hover, .cart:hover {
-      color: var(--accent);
     }
 
     .cart i {
-      margin-right: 6px;
+      margin-right: 5px;
     }
 
     /* Categories */
     .categories {
       background-color: var(--white);
       box-shadow: 0 1px 1px 0 rgba(0,0,0,0.1);
-      padding: 12px 0;
+      padding: 10px 0;
       position: sticky;
-      top: 68px;
+      top: 60px;
       z-index: 90;
     }
 
@@ -143,7 +119,7 @@
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
-      padding: 0 20px;
+      padding: 0 15px;
     }
 
     .category-item {
@@ -151,195 +127,157 @@
       flex-direction: column;
       align-items: center;
       cursor: pointer;
-      transition: all 0.3s;
-      padding: 5px 10px;
-      border-radius: 8px;
+      transition: transform 0.3s;
     }
 
     .category-item:hover {
       transform: translateY(-5px);
-      background-color: rgba(93, 16, 73, 0.1);
     }
 
     .category-item img {
       width: 64px;
       height: 64px;
-      object-fit: contain;
     }
 
     .category-item span {
-      font-size: 13px;
-      margin-top: 8px;
+      font-size: 12px;
+      margin-top: 5px;
       text-align: center;
-      font-weight: 500;
     }
 
     /* Banner */
     .banner {
       max-width: 1200px;
-      margin: 20px auto;
+      margin: 15px auto;
       overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      position: relative;
-      height: 280px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      animation: slide 15s infinite;
     }
 
-    .banner-slide {
+    .banner img {
       width: 100%;
-      height: 100%;
-      position: absolute;
-      transition: transform 0.8s ease;
+      display: block;
     }
 
-    .banner-slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+    @keyframes slide {
+      0%, 30% { transform: translateX(0); }
+      35%, 65% { transform: translateX(-100%); }
+      70%, 100% { transform: translateX(-200%); }
     }
 
     /* Products Section */
     .products-section {
       max-width: 1200px;
-      margin: 30px auto;
-      padding: 0 20px;
+      margin: 20px auto;
+      padding: 0 15px;
     }
 
     .section-title {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
 
     .section-title h2 {
-      font-size: 24px;
+      font-size: 22px;
       color: var(--dark);
-      font-weight: 600;
-      position: relative;
-      padding-left: 15px;
-    }
-
-    .section-title h2::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 4px;
-      background-color: var(--primary);
-      border-radius: 2px;
     }
 
     .section-title a {
       color: var(--primary);
-      font-size: 15px;
-      font-weight: 600;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-
-    .section-title a i {
-      margin-left: 5px;
-      font-size: 12px;
+      font-size: 14px;
+      font-weight: 500;
     }
 
     .products {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 15px;
     }
 
     .product-card {
       background-color: var(--white);
-      border-radius: 8px;
+      border-radius: 5px;
       overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       transition: all 0.3s ease;
       cursor: pointer;
-      position: relative;
     }
 
     .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     }
 
     .product-image {
-      height: 200px;
+      height: 180px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 15px;
       position: relative;
-      background-color: #f9f9f9;
     }
 
     .product-image img {
       max-height: 100%;
       max-width: 100%;
       transition: transform 0.3s;
-      mix-blend-mode: multiply;
     }
 
     .product-card:hover .product-image img {
-      transform: scale(1.08);
+      transform: scale(1.05);
     }
 
     .discount-badge {
       position: absolute;
-      top: 12px;
-      left: 12px;
+      top: 10px;
+      left: 10px;
       background-color: var(--secondary);
       color: white;
-      padding: 4px 10px;
-      font-size: 13px;
-      border-radius: 4px;
-      font-weight: 600;
-      z-index: 2;
+      padding: 3px 8px;
+      font-size: 12px;
+      border-radius: 3px;
     }
 
     .product-details {
-      padding: 18px;
+      padding: 15px;
     }
 
     .product-title {
-      font-size: 15px;
+      font-size: 14px;
       color: var(--dark);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      font-weight: 500;
-      line-height: 1.4;
     }
 
     .product-price {
       display: flex;
       align-items: center;
-      margin-bottom: 8px;
+      margin-bottom: 5px;
     }
 
     .current-price {
-      font-size: 18px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 500;
       color: var(--dark);
     }
 
     .original-price {
-      font-size: 14px;
+      font-size: 12px;
       color: #878787;
       text-decoration: line-through;
-      margin-left: 10px;
+      margin-left: 8px;
     }
 
     .discount {
-      font-size: 14px;
+      font-size: 12px;
       color: #388e3c;
-      margin-left: 10px;
-      font-weight: 500;
+      margin-left: 8px;
     }
 
     .product-rating {
@@ -348,24 +286,23 @@
       background-color: #388e3c;
       color: white;
       width: fit-content;
-      padding: 4px 8px 4px 6px;
-      border-radius: 4px;
-      font-size: 13px;
-      margin-top: 8px;
-      font-weight: 500;
+      padding: 2px 4px 2px 6px;
+      border-radius: 3px;
+      font-size: 12px;
+      margin-top: 5px;
     }
 
     .product-rating i {
-      font-size: 12px;
-      margin-left: 4px;
+      font-size: 10px;
+      margin-left: 3px;
     }
 
     /* Footer */
     .footer {
       background-color: var(--dark);
       color: white;
-      padding: 40px 0 20px;
-      margin-top: 40px;
+      padding: 30px 0;
+      margin-top: 30px;
     }
 
     .footer-container {
@@ -373,17 +310,15 @@
       margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-      padding: 0 20px;
+      gap: 30px;
+      padding: 0 15px;
     }
 
     .footer-column h3 {
-      font-size: 16px;
-      color: #AAAAAA;
-      margin-bottom: 20px;
+      font-size: 14px;
+      color: #878787;
+      margin-bottom: 15px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 600;
     }
 
     .footer-column ul {
@@ -391,109 +326,56 @@
     }
 
     .footer-column ul li {
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .footer-column ul li a {
-      color: #E0E0E0;
+      color: white;
       text-decoration: none;
-      font-size: 14px;
-      transition: color 0.3s;
-      display: flex;
-      align-items: center;
+      font-size: 12px;
     }
 
     .footer-column ul li a:hover {
-      color: var(--accent);
-    }
-
-    .footer-column ul li a i {
-      margin-right: 8px;
-      width: 16px;
-      text-align: center;
-    }
-
-    .copyright {
-      text-align: center;
-      padding-top: 30px;
-      margin-top: 30px;
-      border-top: 1px solid #444;
-      color: #AAAAAA;
-      font-size: 13px;
+      text-decoration: underline;
     }
 
     /* Responsive */
-    @media (max-width: 1100px) {
+    @media (max-width: 992px) {
       .products {
         grid-template-columns: repeat(3, 1fr);
-      }
-      
-      .footer-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
       }
     }
 
     @media (max-width: 768px) {
       .header-container {
         flex-wrap: wrap;
-        gap: 10px;
       }
-      
-      .logo {
-        order: 1;
-      }
-      
       .search-bar {
-        order: 3;
+        order: 1;
         width: 100%;
         margin: 10px 0;
       }
-      
-      .login-btn {
-        order: 2;
-        padding: 8px 20px;
-      }
-      
-      .become-seller, .more, .cart {
-        display: none;
-      }
-      
       .categories-container {
         overflow-x: auto;
         padding-bottom: 10px;
-        justify-content: flex-start;
-        gap: 15px;
       }
-      
       .category-item {
         min-width: 80px;
       }
-      
       .products {
         grid-template-columns: repeat(2, 1fr);
       }
-      
-      .banner {
-        height: 180px;
+      .footer-container {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 576px) {
       .products {
         grid-template-columns: 1fr;
       }
-      
       .footer-container {
         grid-template-columns: 1fr;
-      }
-      
-      .product-image {
-        height: 160px;
-      }
-      
-      .section-title h2 {
-        font-size: 20px;
       }
     }
   </style>
@@ -503,18 +385,18 @@
   <header class="header">
     <div class="header-container">
       <div class="logo">
-        <img src="https://via.placeholder.com/150x40/5D1049/FFFFFF?text=NEORA" alt="Neora">
-        <span>Explore <span class="plus">Plus</span></span>
+        <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/flipkart-plus_8d85f4.png" alt="Flipkart">
+        <span>Explore <span style="color: #ffe500;">Plus</span></span>
       </div>
       
       <div class="search-bar">
-        <input type="text" placeholder="Search for wellness products, beauty items and more">
+        <input type="text" placeholder="Search for products, brands and more">
         <button><i class="fas fa-search"></i></button>
       </div>
       
       <button class="login-btn">Login</button>
       
-      <div class="become-seller">Become a Partner</div>
+      <div class="become-seller">Become a Seller</div>
       <div class="more">More <i class="fas fa-chevron-down"></i></div>
       
       <div class="cart">
@@ -527,90 +409,64 @@
   <div class="categories">
     <div class="categories-container">
       <div class="category-item">
-        <img src="https://via.placeholder.com/64/5D1049/FFFFFF?text=WB" alt="Wellness">
-        <span>Wellness</span>
+        <img src="https://rukminim1.flixcart.com/flap/128/128/image/29327f40e9c4d26b.png" alt="Grocery">
+        <span>Grocery</span>
       </div>
       <div class="category-item">
-        <img src="https://via.placeholder.com/64/5D1049/FFFFFF?text=BT" alt="Beauty">
-        <span>Beauty</span>
+        <img src="https://rukminim1.flixcart.com/flap/128/128/image/22fddf3c7da4c4f4.png" alt="Mobiles">
+        <span>Mobiles</span>
       </div>
       <div class="category-item">
-        <img src="https://via.placeholder.com/64/5D1049/FFFFFF?text=SK" alt="Skincare">
-        <span>Skincare</span>
+        <img src="https://rukminim1.flixcart.com/flap/128/128/image/c12afc017e6f24cb.png" alt="Fashion">
+        <span>Fashion</span>
       </div>
       <div class="category-item">
-        <img src="https://via.placeholder.com/64/5D1049/FFFFFF?text=HC" alt="Haircare">
-        <span>Haircare</span>
+        <img src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png" alt="Electronics">
+        <span>Electronics</span>
       </div>
       <div class="category-item">
-        <img src="https://via.placeholder.com/64/5D1049/FFFFFF?text=NC" alt="Nutrition">
-        <span>Nutrition</span>
+        <img src="https://rukminim1.flixcart.com/flap/128/128/image/ab7e2b022a4587dd.jpg" alt="Home">
+        <span>Home</span>
       </div>
       <div class="category-item">
-        <img src="https://via.placeholder.com/64/5D1049/FFFFFF?text=WT" alt="Weight">
-        <span>Weight Mgmt</span>
+        <img src="https://rukminim1.flixcart.com/flap/128/128/image/0ff199d1bd27eb98.png" alt="Appliances">
+        <span>Appliances</span>
       </div>
       <div class="category-item">
-        <img src="https://via.placeholder.com/64/5D1049/FFFFFF?text=AC" alt="Accessories">
-        <span>Accessories</span>
+        <img src="https://rukminim1.flixcart.com/flap/128/128/image/71050627a56b4693.png" alt="Travel">
+        <span>Travel</span>
       </div>
       <div class="category-item">
-        <img src="https://via.placeholder.com/64/5D1049/FFFFFF?text=BL" alt="Business">
-        <span>Business Tools</span>
+        <img src="https://rukminim1.flixcart.com/flap/128/128/image/dff3f7adcf3a90c6.png" alt="Toys">
+        <span>Toys & More</span>
       </div>
     </div>
   </div>
 
   <!-- Banner -->
   <div class="banner">
-    <div class="banner-slide">
-      <img src="https://via.placeholder.com/1200x400/5D1049/FFFFFF?text=Neora+Wellness+Products" alt="Neora Wellness">
-    </div>
-    <div class="banner-slide">
-      <img src="https://via.placeholder.com/1200x400/E30425/FFFFFF?text=Premium+Beauty+Essentials" alt="Beauty Essentials">
-    </div>
-    <div class="banner-slide">
-      <img src="https://via.placeholder.com/1200x400/5D1049/FFFFFF?text=Join+Our+Community" alt="Neora Community">
-    </div>
+    <img src="https://rukminim1.flixcart.com/flap/3376/560/image/8d415fcc4f3f845d.jpg" alt="Banner">
   </div>
 
-  <!-- Featured Products -->
+  <!-- Deals of the Day -->
   <section class="products-section">
     <div class="section-title">
-      <h2>Featured Wellness Products</h2>
-      <a href="#">VIEW ALL <i class="fas fa-arrow-right"></i></a>
+      <h2>Deals of the Day</h2>
+      <a href="#">VIEW ALL</a>
     </div>
     
     <div class="products">
       <div class="product-card">
         <div class="product-image">
-          <img src="https://via.placeholder.com/300/DFDFDF/5D1049?text=Age+Defying+Serum" alt="Age Defying Serum">
-          <div class="discount-badge">20% OFF</div>
+          <img src="https://rukminim1.flixcart.com/image/312/312/xif0q/mobile/3/5/l/-original-imaghx9qmgqsk9s4.jpeg" alt="iPhone 14">
+          <div class="discount-badge">30% off</div>
         </div>
         <div class="product-details">
-          <div class="product-title">Neora Age Defying Serum with RHA Technology</div>
+          <div class="product-title">APPLE iPhone 14 (Blue, 128 GB)</div>
           <div class="product-price">
-            <span class="current-price">₹3,999</span>
-            <span class="original-price">₹4,999</span>
-            <span class="discount">20% off</span>
-          </div>
-          <div class="product-rating">
-            4.7 <i class="fas fa-star"></i>
-          </div>
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://via.placeholder.com/300/DFDFDF/5D1049?text=Bio+Replenish" alt="Bio Replenish">
-          <div class="discount-badge">COMBO OFFER</div>
-        </div>
-        <div class="product-details">
-          <div class="product-title">Neora Bio Replenish Advanced Night Cream</div>
-          <div class="product-price">
-            <span class="current-price">₹2,799</span>
-            <span class="original-price">₹3,499</span>
-            <span class="discount">20% off</span>
+            <span class="current-price">₹61,999</span>
+            <span class="original-price">₹79,900</span>
+            <span class="discount">22% off</span>
           </div>
           <div class="product-rating">
             4.5 <i class="fas fa-star"></i>
@@ -620,118 +476,136 @@
       
       <div class="product-card">
         <div class="product-image">
-          <img src="https://via.placeholder.com/300/DFDFDF/5D1049?text=Daily+Cleanser" alt="Daily Cleanser">
-          <div class="discount-badge">BESTSELLER</div>
+          <img src="https://rukminim1.flixcart.com/image/312/312/xif0q/computer/z/n/3/-original-imagjuewzzpqghcv.jpeg" alt="Laptop">
+          <div class="discount-badge">25% off</div>
         </div>
         <div class="product-details">
-          <div class="product-title">Neora Daily Cleansing Complex for All Skin Types</div>
+          <div class="product-title">HP Pavilion Ryzen 5 Hexa Core 5600H</div>
           <div class="product-price">
-            <span class="current-price">₹1,599</span>
-            <span class="original-price">₹1,999</span>
-            <span class="discount">20% off</span>
-          </div>
-          <div class="product-rating">
-            4.6 <i class="fas fa-star"></i>
-          </div>
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://via.placeholder.com/300/DFDFDF/5D1049?text=Body+Renew" alt="Body Renew">
-          <div class="discount-badge">NEW</div>
-        </div>
-        <div class="product-details">
-          <div class="product-title">Neora Body Renew Firming & Tightening Cream</div>
-          <div class="product-price">
-            <span class="current-price">₹2,499</span>
-            <span class="original-price">₹3,199</span>
-            <span class="discount">22% off</span>
+            <span class="current-price">₹49,990</span>
+            <span class="original-price">₹66,990</span>
+            <span class="discount">25% off</span>
           </div>
           <div class="product-rating">
             4.3 <i class="fas fa-star"></i>
           </div>
         </div>
       </div>
+      
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://rukminim1.flixcart.com/image/312/312/xif0q/television/f/y/d/-original-imaggj6hzzqzzdhr.jpeg" alt="TV">
+          <div class="discount-badge">40% off</div>
+        </div>
+        <div class="product-details">
+          <div class="product-title">Mi 5X 108 cm (43 inch) Ultra HD (4K) LED Smart Android TV</div>
+          <div class="product-price">
+            <span class="current-price">₹26,999</span>
+            <span class="original-price">₹44,999</span>
+            <span class="discount">40% off</span>
+          </div>
+          <div class="product-rating">
+            4.2 <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://rukminim1.flixcart.com/image/312/312/xif0q/shoe/7/2/m/6-tm-12-6-trm-white-original-imafwxfpcz5dnzzy-bb.jpeg" alt="Shoes">
+          <div class="discount-badge">60% off</div>
+        </div>
+        <div class="product-details">
+          <div class="product-title">TRM White Running Shoes For Men</div>
+          <div class="product-price">
+            <span class="current-price">₹399</span>
+            <span class="original-price">₹999</span>
+            <span class="discount">60% off</span>
+          </div>
+          <div class="product-rating">
+            3.9 <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Beauty Essentials -->
+  <!-- Fashion Section -->
   <section class="products-section">
     <div class="section-title">
-      <h2>Beauty Essentials</h2>
-      <a href="#">VIEW ALL <i class="fas fa-arrow-right"></i></a>
+      <h2>Best of Fashion</h2>
+      <a href="#">VIEW ALL</a>
     </div>
     
     <div class="products">
       <div class="product-card">
         <div class="product-image">
-          <img src="https://via.placeholder.com/300/DFDFDF/5D1049?text=Lash+Serum" alt="Lash Serum">
-          <div class="discount-badge">30% OFF</div>
+          <img src="https://rukminim1.flixcart.com/image/312/312/xif0q/shirt/z/l/c/m-hlsh009430-highlander-original-imafw2ghz9jcdh6z-bb.jpeg" alt="Shirt">
+          <div class="discount-badge">70% off</div>
         </div>
         <div class="product-details">
-          <div class="product-title">Neora Lash & Brow Enhancing Serum with Peptides</div>
+          <div class="product-title">Highlander Men's Slim Fit Casual Shirt</div>
           <div class="product-price">
-            <span class="current-price">₹3,499</span>
-            <span class="original-price">₹4,999</span>
-            <span class="discount">30% off</span>
+            <span class="current-price">₹449</span>
+            <span class="original-price">₹1,499</span>
+            <span class="discount">70% off</span>
           </div>
           <div class="product-rating">
-            4.8 <i class="fas fa-star"></i>
+            4.1 <i class="fas fa-star"></i>
           </div>
         </div>
       </div>
       
       <div class="product-card">
         <div class="product-image">
-          <img src="https://via.placeholder.com/300/DFDFDF/5D1049?text=CC+Cream" alt="CC Cream">
-          <div class="discount-badge">LIMITED STOCK</div>
+          <img src="https://rukminim1.flixcart.com/image/312/312/xif0q/kurta/j/z/g/l-kcsh-kurta-ppl-01-klosia-original-imafpgh5xfrgxgef-bb.jpeg" alt="Kurta">
+          <div class="discount-badge">65% off</div>
         </div>
         <div class="product-details">
-          <div class="product-title">Neora Skin Perfecting CC Cream SPF 30</div>
+          <div class="product-title">Klosia Women's Printed Cotton Kurta</div>
           <div class="product-price">
-            <span class="current-price">₹2,199</span>
-            <span class="original-price">₹2,799</span>
-            <span class="discount">21% off</span>
+            <span class="current-price">₹349</span>
+            <span class="original-price">₹999</span>
+            <span class="discount">65% off</span>
+          </div>
+          <div class="product-rating">
+            4.0 <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://rukminim1.flixcart.com/image/312/312/xif0q/jean/9/r/g/30-ttjn002638-tokyo-talkies-original-imafw2g8mzyhzgza-bb.jpeg" alt="Jeans">
+          <div class="discount-badge">60% off</div>
+        </div>
+        <div class="product-details">
+          <div class="product-title">Tokyo Talkies Women's Slim Fit Jeans</div>
+          <div class="product-price">
+            <span class="current-price">₹499</span>
+            <span class="original-price">₹1,249</span>
+            <span class="discount">60% off</span>
+          </div>
+          <div class="product-rating">
+            3.8 <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-card">
+        <div class="product-image">
+          <img src="https://rukminim1.flixcart.com/image/312/312/xif0q/watch/5/5/8/1-38034pp09-fastrack-original-imafw2g8c9v9mrgq-bb.jpeg" alt="Watch">
+          <div class="discount-badge">55% off</div>
+        </div>
+        <div class="product-details">
+          <div class="product-title">Fastrack Men's Analog Watch</div>
+          <div class="product-price">
+            <span class="current-price">₹1,295</span>
+            <span class="original-price">₹2,895</span>
+            <span class="discount">55% off</span>
           </div>
           <div class="product-rating">
             4.4 <i class="fas fa-star"></i>
-          </div>
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://via.placeholder.com/300/DFDFDF/5D1049?text=Lip+Treatment" alt="Lip Treatment">
-          <div class="discount-badge">BESTSELLER</div>
-        </div>
-        <div class="product-details">
-          <div class="product-title">Neora Ultra Hydrating Lip Treatment</div>
-          <div class="product-price">
-            <span class="current-price">₹999</span>
-            <span class="original-price">₹1,299</span>
-            <span class="discount">23% off</span>
-          </div>
-          <div class="product-rating">
-            4.7 <i class="fas fa-star"></i>
-          </div>
-        </div>
-      </div>
-      
-      <div class="product-card">
-        <div class="product-image">
-          <img src="https://via.placeholder.com/300/DFDFDF/5D1049?text=Eye+Complex" alt="Eye Complex">
-          <div class="discount-badge">NEW</div>
-        </div>
-        <div class="product-details">
-          <div class="product-title">Neora Youth Revival Eye Complex</div>
-          <div class="product-price">
-            <span class="current-price">₹2,899</span>
-            <span class="original-price">₹3,699</span>
-            <span class="discount">22% off</span>
-          </div>
-          <div class="product-rating">
-            4.5 <i class="fas fa-star"></i>
           </div>
         </div>
       </div>
@@ -742,52 +616,47 @@
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-column">
-        <h3>About Neora</h3>
+        <h3>About</h3>
         <ul>
-          <li><a href="#"><i class="fas fa-info-circle"></i> About Us</a></li>
-          <li><a href="#"><i class="fas fa-newspaper"></i> Newsroom</a></li>
-          <li><a href="#"><i class="fas fa-briefcase"></i> Careers</a></li>
-          <li><a href="#"><i class="fas fa-star"></i> Our Science</a></li>
-          <li><a href="#"><i class="fas fa-award"></i> Awards</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Flipkart Stories</a></li>
+          <li><a href="#">Press</a></li>
         </ul>
       </div>
       
       <div class="footer-column">
-        <h3>Customer Care</h3>
+        <h3>Help</h3>
         <ul>
-          <li><a href="#"><i class="fas fa-headset"></i> Contact Us</a></li>
-          <li><a href="#"><i class="fas fa-question-circle"></i> FAQ</a></li>
-          <li><a href="#"><i class="fas fa-shipping-fast"></i> Shipping Policy</a></li>
-          <li><a href="#"><i class="fas fa-exchange-alt"></i> Return Policy</a></li>
-          <li><a href="#"><i class="fas fa-lock"></i> Privacy Policy</a></li>
+          <li><a href="#">Payments</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Cancellation & Returns</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Report Infringement</a></li>
         </ul>
       </div>
       
       <div class="footer-column">
-        <h3>Business Opportunity</h3>
+        <h3>Policy</h3>
         <ul>
-          <li><a href="#"><i class="fas fa-user-plus"></i> Become a Partner</a></li>
-          <li><a href="#"><i class="fas fa-chart-line"></i> Compensation Plan</a></li>
-          <li><a href="#"><i class="fas fa-graduation-cap"></i> Training</a></li>
-          <li><a href="#"><i class="fas fa-tools"></i> Business Tools</a></li>
-          <li><a href="#"><i class="fas fa-handshake"></i> Partner Login</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Terms Of Use</a></li>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Sitemap</a></li>
         </ul>
       </div>
       
       <div class="footer-column">
-        <h3>Connect With Us</h3>
+        <h3>Social</h3>
         <ul>
-          <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-          <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-          <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
-          <li><a href="#"><i class="fab fa-linkedin-in"></i> LinkedIn</a></li>
+          <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
           <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
         </ul>
       </div>
-    </div>
-    
-    <div class="copyright">
-      © 2023 Neora International LLC. All Rights Reserved.
     </div>
   </footer>
 
@@ -797,8 +666,8 @@
     
     productCards.forEach(card => {
       card.addEventListener('mouseenter', () => {
-        card.style.transform = 'translateY(-8px)';
-        card.style.boxShadow = '0 8px 20px rgba(0,0,0,0.15)';
+        card.style.transform = 'translateY(-5px)';
+        card.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
       });
       
       card.addEventListener('mouseleave', () => {
@@ -819,36 +688,36 @@
         const productImg = card.querySelector('img').src;
         const flyImg = document.createElement('img');
         flyImg.src = productImg;
-        flyImg.style.width = '60px';
-        flyImg.style.height = '60px';
+        flyImg.style.width = '50px';
+        flyImg.style.height = '50px';
         flyImg.style.position = 'fixed';
         flyImg.style.zIndex = '9999';
         flyImg.style.objectFit = 'cover';
-        flyImg.style.borderRadius = '8px';
-        flyImg.style.boxShadow = '0 4px 15px rgba(0,0,0,0.3)';
+        flyImg.style.borderRadius = '5px';
+        flyImg.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
         
         // Get positions
         const cardRect = card.getBoundingClientRect();
         const cartRect = cartIcon.getBoundingClientRect();
         
         // Set initial position
-        flyImg.style.left = `${cardRect.left + cardRect.width/2 - 30}px`;
-        flyImg.style.top = `${cardRect.top}px`;
+        flyImg.style.left = ${cardRect.left + cardRect.width/2 - 25}px;
+        flyImg.style.top = ${cardRect.top}px;
         document.body.appendChild(flyImg);
         
         // Animate to cart
         const animation = flyImg.animate([
           { 
-            left: `${cardRect.left + cardRect.width/2 - 30}px`,
-            top: `${cardRect.top}px`,
+            left: ${cardRect.left + cardRect.width/2 - 25}px,
+            top: ${cardRect.top}px,
             opacity: 1,
             transform: 'scale(1)'
           },
           { 
-            left: `${cartRect.left + cartRect.width/2 - 30}px`,
-            top: `${cartRect.top}px`,
-            opacity: 0.7,
-            transform: 'scale(0.7)'
+            left: ${cartRect.left + cartRect.width/2 - 25}px,
+            top: ${cartRect.top}px,
+            opacity: 0.5,
+            transform: 'scale(0.5)'
           }
         ], {
           duration: 800,
@@ -858,10 +727,10 @@
         animation.onfinish = () => {
           flyImg.remove();
           cartItems++;
-          cartIcon.innerHTML = `<i class="fas fa-shopping-cart"></i> Cart (${cartItems})`;
+          cartIcon.innerHTML = <i class="fas fa-shopping-cart"></i> Cart (${cartItems});
           
           // Pulse cart icon
-          cartIcon.style.transform = 'scale(1.3)';
+          cartIcon.style.transform = 'scale(1.2)';
           setTimeout(() => {
             cartIcon.style.transform = '';
           }, 300);
@@ -871,24 +740,16 @@
     
     // Auto-sliding banner
     const banner = document.querySelector('.banner');
-    const slides = document.querySelectorAll('.banner-slide');
     let currentSlide = 0;
-    const slideCount = slides.length;
-    
-    function showSlide(index) {
-      slides.forEach((slide, i) => {
-        slide.style.transform = `translateX(${100 * (i - index)}%)`;
-      });
-    }
+    const slideCount = 3; // Number of slides
     
     function nextSlide() {
       currentSlide = (currentSlide + 1) % slideCount;
-      showSlide(currentSlide);
+      banner.style.transform = translateX(-${currentSlide * 100}%);
     }
     
-    // Initialize
-    showSlide(currentSlide);
     setInterval(nextSlide, 5000);
   </script>
 </body>
 </html>
+DEEP SEA
